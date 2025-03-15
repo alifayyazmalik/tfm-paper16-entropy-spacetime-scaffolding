@@ -1,0 +1,6 @@
+# Sample ringdown waveform data (HDF5 format)
+import h5py
+with h5py.File('data/blackhole_ringdowns.h5', 'w') as f:
+    f.create_dataset('time', data=np.linspace(0, 1, 1000))
+    f.create_dataset('strain_tfm', data=np.exp(-0.2*time)*np.sin(50*time))
+    f.create_dataset('strain_gr', data=np.exp(-0.15*time)*np.sin(48*time))
